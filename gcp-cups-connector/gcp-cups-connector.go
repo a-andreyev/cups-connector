@@ -45,7 +45,7 @@ func main() {
 	app.Action = func(context *cli.Context) {
 		os.Exit(connector(context))
 	}
-	app.RunAndExitOnError()
+	app.Run()
 }
 
 func connector(context *cli.Context) int {
