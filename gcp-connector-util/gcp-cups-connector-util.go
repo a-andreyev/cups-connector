@@ -26,22 +26,22 @@ var commonCommands = []cli.Command{
 	cli.Command{
 		Name:   "delete-all-gcp-printers",
 		Usage:  "Delete all printers associated with this connector",
-		Action: deleteAllGCPPrinters,
+		ActionFunc: deleteAllGCPPrinters,
 	},
 	cli.Command{
 		Name:   "backfill-config-file",
 		Usage:  "Add all keys, with default values, to the config file",
-		Action: backfillConfigFile,
+		ActionFunc: backfillConfigFile,
 	},
 	cli.Command{
 		Name:   "sparse-config-file",
 		Usage:  "Remove all keys, with non-default values, from the config file",
-		Action: sparseConfigFile,
+		ActionFunc: sparseConfigFile,
 	},
 	cli.Command{
 		Name:   "delete-gcp-job",
 		Usage:  "Deletes one GCP job",
-		Action: deleteGCPJob,
+		ActionFunc: deleteGCPJob,
 		Flags: []cli.Flag{
 			cli.StringFlag{
 				Name: "job-id",
@@ -51,7 +51,7 @@ var commonCommands = []cli.Command{
 	cli.Command{
 		Name:   "cancel-gcp-job",
 		Usage:  "Cancels one GCP job",
-		Action: cancelGCPJob,
+		ActionFunc: cancelGCPJob,
 		Flags: []cli.Flag{
 			cli.StringFlag{
 				Name: "job-id",
@@ -61,7 +61,7 @@ var commonCommands = []cli.Command{
 	cli.Command{
 		Name:   "delete-all-gcp-printer-jobs",
 		Usage:  "Delete all queued jobs associated with a printer",
-		Action: deleteAllGCPPrinterJobs,
+		ActionFunc: deleteAllGCPPrinterJobs,
 		Flags: []cli.Flag{
 			cli.StringFlag{
 				Name: "printer-id",
@@ -71,7 +71,7 @@ var commonCommands = []cli.Command{
 	cli.Command{
 		Name:   "cancel-all-gcp-printer-jobs",
 		Usage:  "Cancels all queued jobs associated with a printer",
-		Action: cancelAllGCPPrinterJobs,
+		ActionFunc: cancelAllGCPPrinterJobs,
 		Flags: []cli.Flag{
 			cli.StringFlag{
 				Name: "printer-id",
@@ -81,7 +81,7 @@ var commonCommands = []cli.Command{
 	cli.Command{
 		Name:   "show-gcp-printer-status",
 		Usage:  "Shows the current status of a printer and it's jobs",
-		Action: showGCPPrinterStatus,
+		ActionFunc: showGCPPrinterStatus,
 		Flags: []cli.Flag{
 			cli.StringFlag{
 				Name: "printer-id",
@@ -91,7 +91,7 @@ var commonCommands = []cli.Command{
 	cli.Command{
 		Name:   "share-gcp-printer",
 		Usage:  "Shares a printer with user or group",
-		Action: shareGCPPrinter,
+		ActionFunc: shareGCPPrinter,
 		Flags: []cli.Flag{
 			cli.StringFlag{
 				Name:  "printer-id",
@@ -119,7 +119,7 @@ var commonCommands = []cli.Command{
 	cli.Command{
 		Name:   "unshare-gcp-printer",
 		Usage:  "Removes user or group access to printer.",
-		Action: unshareGCPPrinter,
+		ActionFunc: unshareGCPPrinter,
 		Flags: []cli.Flag{
 			cli.StringFlag{
 				Name:  "printer-id",
@@ -138,7 +138,7 @@ var commonCommands = []cli.Command{
 	cli.Command{
 		Name:   "update-gcp-printer",
 		Usage:  "Modifies settings for a printer.",
-		Action: updateGCPPrinter,
+		ActionFunc: updateGCPPrinter,
 		Flags: []cli.Flag{
 			cli.StringFlag{
 				Name:  "printer-id",
